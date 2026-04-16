@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { JobContext } from "../context/JobContext";
 
 function PostJob() {
@@ -14,10 +14,10 @@ function PostJob() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newJob = {
-      id: jobs.length + 1,
-      ...form,
-    };
+  const newJob = {
+    id: Date.now(), // ✅ better than jobs.length + 1
+    ...form,
+  };
 
     setJobs([...jobs, newJob]);
   };

@@ -1,0 +1,12 @@
+.custom-class {}
+
+.job-grid {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.dlt-btn{
+    
+}

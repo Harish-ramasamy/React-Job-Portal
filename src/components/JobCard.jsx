@@ -1,9 +1,21 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { JobContext } from "../context/JobContext"
+import "./JobCard.css";
 
 function JobCard({ job }) {
+  const { jobs, setJobs } = useContext(JobContext);
+  const { deleteJob } = useContext(JobContext);
+
+
+  const handleDelete = () => {
+    const updatedJobs = jobs.filter((j) => j.id !== job.id);
+    setJobs(updatedJobs);
+  };
+
   return (
     <div className="card shadow-sm mb-3">
-      <div className="card-body">
+      <div className="card-body job-grid">
         <h5 className="card-title">{job.title}</h5>
         <h6 className="card-subtitle mb-2 text-muted">
           {job.company}
@@ -13,6 +25,7 @@ function JobCard({ job }) {
         <Link to={`/job/${job.id}`} className="btn btn-primary btn-sm">
           View Details
         </Link>
+        <button className="dlt-btn" onClick={() => deleteJob(job.id)}>Delete</button>
       </div>
     </div>
   );
