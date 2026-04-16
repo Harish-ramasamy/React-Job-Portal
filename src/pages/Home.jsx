@@ -12,7 +12,7 @@ function Home() {
   );
 
   return (
-    <div className="container mt-4">
+    <div className="m-4">
 
       <h2 className="mb-3">Find Your Dream Job 💼</h2>
 
